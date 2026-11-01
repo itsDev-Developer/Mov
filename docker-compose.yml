@@ -1,0 +1,20 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    depends_on: [mongo]
+    volumes: [bot-data:/app/data]
+    ports: ["8080:8080"]
+    mem_limit: 300m
+    stop_grace_period: 20s
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes: [mongo-data:/data/db]
+    command: ["mongod", "--wiredTigerCacheSizeGB", "0.25"]
+volumes:
+  bot-data:
+  mongo-data:

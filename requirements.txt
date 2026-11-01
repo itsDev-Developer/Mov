@@ -1,0 +1,8 @@
+# Maintained Pyrogram fork (same `import pyrogram`): spoiler photos, blockquotes, web-app buttons
+kurigram>=2.2.26
+tgcrypto
+pymongo>=4.13           # async API (AsyncMongoClient)
+httpx>=0.27
+aiohttp>=3.9            # health + metrics endpoint
+python-dotenv>=1.0
+Pillow>=10.0            # real poster blur
